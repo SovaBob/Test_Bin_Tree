@@ -60,5 +60,19 @@ namespace BinTree
                 }
             }
         }
+ 
+        public long CountElements(Vertex actual)
+        {
+            long count = 1;
+            if (actual.right != null)
+            {
+                count += CountElements(actual.right);
+            }
+            if (actual.left != null)
+            {
+                count += CountElements(actual.left);
+            }
+            return count;
+        }
     }
 }

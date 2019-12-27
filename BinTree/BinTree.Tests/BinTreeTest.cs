@@ -54,5 +54,18 @@ namespace BinTree.Tests
             n = t.Find(17, t.origin);
             Assert.AreEqual(n, t.origin.left.right);
         }
+
+        [Test]
+        public void TestCountElements()
+        {
+            BinTree t = new BinTree(5);
+            t.Add(t.origin, new BinTree.Vertex(2));
+            t.Add(t.origin, new BinTree.Vertex(3));
+            t.Add(t.origin, new BinTree.Vertex(4));
+            t.Add(t.origin, new BinTree.Vertex(1));
+
+            long n = t.CountElements(t.origin);
+            Assert.AreEqual(n, 5);
+        }
     }
 }
