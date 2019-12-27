@@ -37,5 +37,28 @@ namespace BinTree
                 else                        Add(actual.right, n);
             }
         }
+
+        public Vertex Find(int data, Vertex actual)
+        {
+            if (actual == null)
+            {
+                return null;
+            }
+            if (data < actual.data)
+            {
+                return Find(data, actual.left);
+            }
+            else
+            {
+                if (data == actual.data)
+                {
+                    return actual;
+                }
+                else
+                {
+                    return Find(data, actual.right);
+                }
+            }
+        }
     }
 }

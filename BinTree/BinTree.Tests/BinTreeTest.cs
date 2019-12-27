@@ -38,5 +38,21 @@ namespace BinTree.Tests
             Assert.AreEqual(n, t.origin.right);
 
         }
+
+        [Test]
+        public void TestFind()
+        {
+            BinTree t = new BinTree(25);
+            t.Add(t.origin, new BinTree.Vertex(0));
+            t.Add(t.origin, new BinTree.Vertex(17));
+            t.Add(t.origin, new BinTree.Vertex(10));
+            t.Add(t.origin, new BinTree.Vertex(5));
+
+            BinTree.Vertex n = t.Find(1, t.origin);
+            Assert.AreEqual(n, null);
+
+            n = t.Find(17, t.origin);
+            Assert.AreEqual(n, t.origin.left.right);
+        }
     }
 }
