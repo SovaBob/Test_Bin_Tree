@@ -23,5 +23,19 @@ namespace BinTree
         {
             origin = new Vertex(data);
         }
+
+        public void Add(Vertex actual, Vertex n)
+        {
+            if (n.data < actual.data)
+            {
+                if (actual.left == null)    actual.left = n;
+                else                        Add(actual.left, n);
+            }
+            else
+            {
+                if (actual.right == null)   actual.right = n;
+                else                        Add(actual.right, n);
+            }
+        }
     }
 }
