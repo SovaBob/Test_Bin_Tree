@@ -74,5 +74,19 @@ namespace BinTree
             }
             return count;
         }
+
+        public int SummaElements(Vertex actual)
+        {
+            if (actual == null)
+                return 0;
+            else
+            {
+                int count = 0;
+                count += SummaElements(actual.left);
+                count += SummaElements(actual.right);
+
+                return count + actual.data;
+            }
+        }
     }
 }

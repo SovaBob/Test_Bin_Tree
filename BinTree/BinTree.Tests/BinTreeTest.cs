@@ -67,5 +67,16 @@ namespace BinTree.Tests
             long n = t.CountElements(t.origin);
             Assert.AreEqual(n, 5);
         }
+
+        [Test]
+        public void TestSummaElements()
+        {
+            BinTree t = new BinTree(0);
+            t.Add(t.origin, new BinTree.Vertex(-5));
+            t.Add(t.origin, new BinTree.Vertex(5));
+
+            long n = t.SummaElements(t.origin);
+            Assert.AreEqual(n, 0);
+        }
     }
 }
