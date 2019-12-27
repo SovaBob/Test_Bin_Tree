@@ -100,5 +100,19 @@ namespace BinTree.Tests
             Assert.AreEqual(t.origin.right.left.data, 3);
             Assert.AreEqual(t.origin.right.right.data, 6);
         }
+
+        [Test]
+        public void TestCountAfterDelete()
+        {
+            BinTree t = new BinTree(1);
+
+            BinTree.Vertex
+            n = new BinTree.Vertex(3); t.Add(t.origin, n);
+            n = new BinTree.Vertex(4); t.Add(t.origin, n);
+
+            t.Delete(3);
+            long a = t.CountElements(t.origin);
+            Assert.AreEqual(a, 2);
+        }
     }
 }
