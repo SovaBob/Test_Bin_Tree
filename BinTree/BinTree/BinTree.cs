@@ -88,5 +88,48 @@ namespace BinTree
                 return count + actual.data;
             }
         }
+
+        public Vertex Delete(Vertex actual, int data)
+        {
+            if (actual == null)
+            {
+                return null;
+            }
+            if (data < actual.data)
+            {
+                actual.left = Delete(actual.left, data);
+            }
+            else
+            {
+                if (data > actual.data)
+                {
+                    actual.right = Delete(actual.right, data);
+                }
+                else
+                {
+                    if (actual.right == null)
+                    {
+                        return actual.left;
+                    }
+                    else
+                    {
+                        Vertex parent = actual.right;
+                        while (parent.left != null)
+                        {
+                            parent = parent.left;
+                        }
+                        actual.data = parent.data;
+                        actual.right = Delete(actual.right, parent.data);
+                    }
+                }
+            }
+            return actual;
+        }
+
+        public void Delete(int data)
+        {
+            origin = Delete(origin, data);
+        }
+
     }
 }

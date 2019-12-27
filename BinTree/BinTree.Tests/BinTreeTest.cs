@@ -78,5 +78,27 @@ namespace BinTree.Tests
             long n = t.SummaElements(t.origin);
             Assert.AreEqual(n, 0);
         }
+
+        [Test]
+        public void TestDelete()
+        {
+             BinTree t = new BinTree(1);
+
+            BinTree.Vertex 
+            n = new BinTree.Vertex(4);    t.Add(t.origin, n);
+            n = new BinTree.Vertex(3);    t.Add(t.origin, n);
+            n = new BinTree.Vertex(6);    t.Add(t.origin, n);
+            n = new BinTree.Vertex(5);    t.Add(t.origin, n);
+            n = new BinTree.Vertex(-1);   t.Add(t.origin, n);
+
+            t.Delete(-1);
+            t.Delete(0);
+            t.Delete(4);
+
+            Assert.AreEqual(t.origin.data, 1);
+            Assert.AreEqual(t.origin.right.data, 5);
+            Assert.AreEqual(t.origin.right.left.data, 3);
+            Assert.AreEqual(t.origin.right.right.data, 6);
+        }
     }
 }
